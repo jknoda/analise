@@ -1,3 +1,9 @@
+const server = require('./config/server');
+require('./database/dbinit');
+require('./config/routes')(server);
+
+
+/*
 const express = require('express')
 const server = express()
 
@@ -24,3 +30,4 @@ server.get(/api/,function(req,res){
 
 server.listen(process.env.PORT,()=>console.log('Executando...'))
 
+*/
