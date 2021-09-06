@@ -10,7 +10,7 @@ server.get('/',function(req,res,next){
 
 server.get('/', function(req,res){
     console.log('resposta...')
-    res.send('<h1>Respota...Index!</h1>')
+    res.send('<h1>Resposta...Index!</h1>')
 })
 
 server.all('/teste',function(req,res){
