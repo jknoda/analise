@@ -1,0 +1,15 @@
+{
+  "name": "express_bi",
+  "version": "1.0.0",
+  "description": "Express para BI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jorge K Noda",
+  "license": "ISC",
+  "dependencies": {
+    "epxress": "0.0.1-security",
+    "express": "^4.17.1"
+  }
+}
