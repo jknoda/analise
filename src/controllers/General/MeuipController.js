@@ -13,19 +13,21 @@ module.exports = {
             where: { ipnumber },
             order: [ [ 'data', 'DESC' ]],
         });
-        var dia1 = retorno.data.getDay();
-        var mes1 = retorno.data.getMonth();
-        var ano1 = retorno.data.getFullYear();
-        var hora1 = retorno.data.getHours();
-        var dia2 = data.getDay();
-        var mes2 = data.getMonth();
-        var ano2 = data.getFullYear();
-        var hora2 = data.getHours();
+        if (retorno){
+            var dia1 = retorno.data.getDay();
+            var mes1 = retorno.data.getMonth();
+            var ano1 = retorno.data.getFullYear();
+            var hora1 = retorno.data.getHours();
+            var dia2 = data.getDay();
+            var mes2 = data.getMonth();
+            var ano2 = data.getFullYear();
+            var hora2 = data.getHours();
 
-        if (dia1 == dia2 && mes1 == mes2 && ano1 == ano2 && hora1 == hora2)
-        {
-            idf = idf - 1;
-            return res.send(idf.toString());
+            if (dia1 == dia2 && mes1 == mes2 && ano1 == ano2 && hora1 == hora2)
+            {
+                idf = idf - 1;
+                return res.send(idf.toString());
+            }
         }
         retorno = await IP.create( { idf, ipnumber, data } )
         .catch(function (err) {
