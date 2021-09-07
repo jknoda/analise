@@ -8,9 +8,10 @@ module.exports = {
         var idf = parseInt(await IP.count()) + 1;
         const ipnumber = myip.getLocalIP4();
         const data = new Date();
+        const site = 'jkn';
 
         var retorno = await IP.findOne({
-            where: { ipnumber },
+            where: { ipnumber, site },
             order: [ [ 'data', 'DESC' ]],
         });
         if (retorno){
@@ -29,7 +30,7 @@ module.exports = {
                 return res.send(idf.toString());
             }
         }
-        retorno = await IP.create( { idf, ipnumber, data } )
+        retorno = await IP.create( { idf, site, ipnumber, data } )
         .catch(function (err) {
             return errDB(res, err);
         });

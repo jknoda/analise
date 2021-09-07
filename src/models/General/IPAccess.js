@@ -8,6 +8,11 @@ class IPAccess extends Model {
                 primaryKey: true,
                 allowNull: false
             },
+            site: {
+                type: DataTypes.STRING(10),
+                allowNull: true
+            },
+
             ipnumber: {
                 type: DataTypes.STRING(45),
                 allowNull: true
