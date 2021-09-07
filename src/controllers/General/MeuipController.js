@@ -5,10 +5,29 @@ const errDB = require('../../common/_sendErrorsDB');
 
 module.exports = {
     async create(req,res){
-        const idf = parseInt(await IP.count()) + 1;
+        var idf = parseInt(await IP.count()) + 1;
         const ipnumber = myip.getLocalIP4();
         const data = new Date();
-        const retorno = await IP.create( { idf, ipnumber, data } )
+
+        var retorno = await IP.findOne({
+            where: { ipnumber },
+            order: [ [ 'data', 'DESC' ]],
+        });
+        var dia1 = retorno.data.getDay();
+        var mes1 = retorno.data.getMonth();
+        var ano1 = retorno.data.getFullYear();
+        var hora1 = retorno.data.getHours();
+        var dia2 = data.getDay();
+        var mes2 = data.getMonth();
+        var ano2 = data.getFullYear();
+        var hora2 = data.getHours();
+
+        if (dia1 == dia2 && mes1 == mes2 && ano1 == ano2 && hora1 == hora2)
+        {
+            idf = idf - 1;
+            return res.send(idf.toString());
+        }
+        retorno = await IP.create( { idf, ipnumber, data } )
         .catch(function (err) {
             return errDB(res, err);
         });
