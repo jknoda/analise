@@ -15,6 +15,7 @@
     "express-query-int": "^3.0.0",
     "loadash": "^1.0.0",
     "mysql2": "^2.3.0",
+    "quick-local-ip": "^1.0.7",
     "sequelize": "^6.6.5"
   }
 }
